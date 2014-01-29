@@ -1,4 +1,5 @@
 class DayOne
+  #Ruby exercises for day one of the seven languages seven weeks book.
 
   def run
 #Pring the string "Hello, World"

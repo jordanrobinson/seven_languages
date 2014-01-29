@@ -1,4 +1,5 @@
 class DayTwo
+  #Ruby exercises for day one of the seven languages seven weeks book.
 
   def run
     array_each
@@ -17,9 +18,6 @@ class DayTwo
     end
 
   end
-
-
-
 
 
 
