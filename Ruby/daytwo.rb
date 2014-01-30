@@ -3,6 +3,8 @@ class DayTwo
 
   def run
     array_each
+
+    simple_grep
   end
 
   def array_each
@@ -16,8 +18,17 @@ class DayTwo
         puts a[a.rindex(i)..a.rindex(i)+3].join(" ")
       end
     end
-
   end
+
+  def simple_grep
+    File.open('daytwo.txt', 'r') do |file|
+      while line = file.gets
+        puts line
+      end
+    end
+  end
+
+
 
 
 
