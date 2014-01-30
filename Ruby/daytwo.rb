@@ -21,9 +21,19 @@ class DayTwo
   end
 
   def simple_grep
+    catch_group = 'sdf'
+
+    count = 0
     File.open('daytwo.txt', 'r') do |file|
       while line = file.gets
-        puts line
+        count += 1
+
+        if line.include? catch_group
+          print count
+          puts ' ' + line
+        end
+
+
       end
     end
   end
