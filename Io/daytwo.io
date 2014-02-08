@@ -10,8 +10,6 @@ for(z, 1, end,
 
 //fib(20)
 
-"" println
-
 //exercise two - / operator
 //Number divMethod := Number getSlot("/") //we want to use the original div
 //Number / = method(x, if(x == 0, 0 self divMethod(x))) //but check against 0 as well
@@ -20,17 +18,19 @@ for(z, 1, end,
 //10 / 1 println
 //10 / 0 println
 
-//exercise three
+//exercise three - sum a 2d list
 
-x := List(1, 2, 3)
-y := List(4, 5, 6)
-z := List(x,y)
+x := list(1, 2, 3)
+y := list(4, 5, 6)
+z := list(x,y)
 
-z(1) println
+sumall := method(array, array flatten sum)
 
-List slotNames println
+sumall(z) println
 
+//exercise four - myAverage function
 
-sumall := method (z(1) sum println z(0) sum println)
+List myAverage := method(self sum / self size)
 
-sumall
+x myAverage println
+
