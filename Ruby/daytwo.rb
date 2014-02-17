@@ -32,8 +32,6 @@ class DayTwo
           print count
           puts ' ' + line
         end
-
-
       end
     end
   end
