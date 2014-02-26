@@ -7,6 +7,18 @@ object HelloWorld {
 		forEachLoop
 		println()
 		forEachLoopUntil
+
+		//let's use some tuples
+
+		val test = ("taco", "cat") //tuples appear to be immutable
+		println(test) //calling the tostring of tuple2
+		println(test._1) //tuples are one-indexed it seems. This is an interesting question as to why https://stackoverflow.com/questions/6241464/why-are-the-indexes-of-scala-tuples-1-based
+		println(test._2) //if we did ._3 it would throw an error, as would ._0
+		println(test.swap)
+		println(test.productArity)
+		val secondTest = ("cat", "taco")
+		println(secondTest == test)
+		println(secondTest.swap == test) //so swap must return a new tuple since tuples are immutable and this is true
 	}
 
 	//I'll deconstruct and comment this to see if I understand what's going on a little
