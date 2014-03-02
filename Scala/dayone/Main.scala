@@ -81,6 +81,4 @@ def main(args: Array[String]) {
       println(i) //this one specifies direction, since 5 until 0 will not infer 5 4 3... without a by indication
     }
   }
-
-
 }
