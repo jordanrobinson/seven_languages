@@ -15,7 +15,6 @@ class Scrap {
     println()
     list.drop(2).foreach(man => println(man))
 
-
     //and as a set...
     println() //formatting
 
@@ -43,8 +42,4 @@ class Scrap {
   def stringLengthSum(strings: List[String]): Int = {
     strings.foldLeft(0)((sum, value) => sum + value.length)
   }
-
-
-
-
 }
