@@ -31,7 +31,20 @@ class Scrap {
 
     println(list.forall(man => man.contains("man")))
     println(set.forall(man => man.contains("man")))
+    println(set.exists(man => man.contains("Dr")))
 
+    println()
+
+    println(stringLengthSum(list))
 
   }
+
+  //exercise one - use foldLeft to compute the total size of a list of strings
+  def stringLengthSum(strings: List[String]): Int = {
+    strings.foldLeft(0)((sum, value) => sum + value.length)
+  }
+
+
+
+
 }
