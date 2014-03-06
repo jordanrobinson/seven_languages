@@ -1,9 +1,41 @@
 package daytwo
 
+import scala.io
+
+//exercise two - Write a censor trait
+trait Censor {
+
+  val curses = Map("(?i)shoot" -> "Pucky", "(?i)darn" -> "Beans")
+
+  def replace(string: String): String = {
+    var politePhrase = string
+
+    curses.foreach(curse =>
+      politePhrase = politePhrase.replaceAll(curse._1, curse._2)
+    )
+
+    politePhrase
+  }
+}
+
+
+//exercise three - load the curses from a file
+trait BetterCensor {
+  val lines = io.Source.fromFile("curses.txt").getLines()
+
+  println(lines)
+
+  def betterReplace(string: String): String = {
+    string
+  }
+
+}
+
 /**
  * Addendum leading up to day two exercises.
  */
-class Scrap {
+class Scrap extends Censor with BetterCensor {
+
   def run() {
 
     val list = List("Guts man", "Bubble man", "Proto man")
@@ -35,6 +67,12 @@ class Scrap {
     println()
 
     println(stringLengthSum(list))
+
+
+    val cursePhrase = "Shoot, why did I ever do all that blasted darning"
+    println(replace(cursePhrase))
+
+    println(betterReplace(cursePhrase))
 
   }
 
