@@ -18,15 +18,29 @@ trait Censor {
   }
 }
 
-
 //exercise three - load the curses from a file
 trait BetterCensor {
-  val lines = io.Source.fromFile("curses.txt").getLines()
-
-  println(lines)
 
   def betterReplace(string: String): String = {
-    string
+    val lines = io.Source.fromFile("src/daytwo/curses.txt").mkString
+
+    val betterCurses = collection.mutable.Map[String, String]()
+
+    lines.split("\n").foreach(line => {
+      betterCurses.put(line.split(",")(0), line.split(",")(1))
+    })
+
+    betterCurses.foreach((curse: (String, String)) => println(curse._1 + " -> " +curse._2))
+    var politePhrase = string
+
+    println(politePhrase)
+    betterCurses.foreach(curse => {
+      politePhrase = politePhrase.replaceAll(curse._1, curse._2)
+      println(curse._1)
+      println(curse._2)
+      println(politePhrase)
+    })
+    politePhrase
   }
 
 }
@@ -38,6 +52,13 @@ class Scrap extends Censor with BetterCensor {
 
   def run() {
 
+    val cursePhrase = "shoot, why did I ever do all that blasted darning"
+    println(replace(cursePhrase))
+
+    println(betterReplace(cursePhrase))
+  }
+
+  def anonFunctions() = {
     val list = List("Guts man", "Bubble man", "Proto man")
     list.foreach(man => println(man)) //anonymous functions are pretty neat
     println()
@@ -56,7 +77,7 @@ class Scrap extends Censor with BetterCensor {
     println()
 
     val powers = Map("Spark man" -> "Electricity", "Bubble man" -> "Fires Bubbles", "Guts man" -> "No idea")
-    println(powers.foreach(man => println(man._2)))
+    powers.foreach(man => println(man._2))
 
     println() //formatting
 
@@ -67,13 +88,6 @@ class Scrap extends Censor with BetterCensor {
     println()
 
     println(stringLengthSum(list))
-
-
-    val cursePhrase = "Shoot, why did I ever do all that blasted darning"
-    println(replace(cursePhrase))
-
-    println(betterReplace(cursePhrase))
-
   }
 
   //exercise one - use foldLeft to compute the total size of a list of strings
