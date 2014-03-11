@@ -1,7 +1,5 @@
 package daytwo
 
-import scala.io
-
 //exercise two - Write a censor trait
 trait Censor {
 
@@ -24,22 +22,16 @@ trait BetterCensor {
   def betterReplace(string: String): String = {
     val lines = io.Source.fromFile("src/daytwo/curses.txt").mkString
 
-    val betterCurses = collection.mutable.Map[String, String]()
+    var betterCurses = Map.empty[String, String]
 
     lines.split("\n").foreach(line => {
-      betterCurses.put(line.split(",")(0), line.split(",")(1))
+      betterCurses += line.split(",")(0) -> line.split(",")(1).trim
     })
 
     betterCurses.foreach((curse: (String, String)) => println(curse._1 + " -> " +curse._2))
     var politePhrase = string
 
-    println(politePhrase)
-    betterCurses.foreach(curse => {
-      politePhrase = politePhrase.replaceAll(curse._1, curse._2)
-      println(curse._1)
-      println(curse._2)
-      println(politePhrase)
-    })
+    betterCurses.foreach(curse => politePhrase = politePhrase.replace(curse._1, curse._2))
     politePhrase
   }
 
@@ -53,7 +45,7 @@ class Scrap extends Censor with BetterCensor {
   def run() {
 
     val cursePhrase = "shoot, why did I ever do all that blasted darning"
-    println(replace(cursePhrase))
+    //println(replace(cursePhrase))
 
     println(betterReplace(cursePhrase))
   }
