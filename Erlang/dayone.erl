@@ -3,7 +3,7 @@
 -export([counting/0]).
 -export([counting/1]).
 
-run() -> counting().
+run() -> io:fwrite(count_words("hello")).
 
 counting(N) -> if
                  N < 11 ->
@@ -14,3 +14,15 @@ counting(N) -> if
                end.
 
 counting() -> counting(1).
+
+
+words_in_string(Input) -> [_ | Tail] = Input, 1 + words_in_string(Input).
+
+
+list_length([]) -> 0;
+list_length(String) ->
+  [_ | Tail] = String,
+  1 + list_length(Tail).
+count_words(Text) ->
+  R = re:split(Text, " "),
+  list_length(R).
