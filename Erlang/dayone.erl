@@ -15,9 +15,7 @@ counting(N) -> if
 
 counting() -> counting(1).
 
-
 words_in_string(Input) -> [_ | Tail] = Input, 1 + words_in_string(Input).
-
 
 list_length([]) -> 0;
 list_length(String) ->
