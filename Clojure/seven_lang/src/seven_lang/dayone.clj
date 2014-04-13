@@ -1,8 +1,9 @@
 (ns seven-lang.dayone)
 
+;;exercise one - implement a function called (big st n) that returns true if a string st is longer than n characters
 (defn big
   "returns true if a string is big"
-  [st]
-  (if (> (count st) 4)
+  [st, n]
+  (if (> (count st) n)
     true false)
   )
