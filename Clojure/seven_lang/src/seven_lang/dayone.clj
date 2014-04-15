@@ -7,3 +7,9 @@
   (if (> (count st) n)
     true false)
   )
+;;exercise two - write a function called (collection-type col) that returns the type of collection given
+(defn collection-type
+  "returns which collection type was provided"
+  [col]
+  (type col)
+  )
