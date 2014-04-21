@@ -12,13 +12,25 @@
 ;exercise two - write a type using defrecord that implements a protocol
 
 (defprotocol Test
-  (pass-test [this])
-  (fail-test [this])
+  (pass-test [this test-name])
+  (fail-test [this test-name])
   )
 
 (defrecord Tester [name]
   Test
   (pass-test
-    [this] (println "Success!")
+    [this test-name] (println (str test-name " is a Success!"))
     )
+  (fail-test
+    [this test-name] (println (str test-name " is a Failure!"))
+    )
+
+  )
+
+(defn test-things
+  "Uses the tester"
+  []
+  (def tester (Tester. "Test man"))
+  (pass-test tester "this test")
+  (fail-test tester "that test")
   )
