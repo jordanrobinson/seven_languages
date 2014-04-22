@@ -1,6 +1,7 @@
 (ns seven-lang.core
   (require seven-lang.dayone)
   (require seven-lang.daytwo)
+  (require seven-lang.daythree)
   )
 
 (defn hello
