@@ -27,6 +27,7 @@
   (seven-lang.daytwo/unlesselse true (println "true!") (println "false!"))
   (seven-lang.daytwo/unlesselse false (println "true!") (println "false!"))
   (seven-lang.daytwo/test-things)
+  (seven-lang.daythree/do-banking)
   )
 
 (run)
