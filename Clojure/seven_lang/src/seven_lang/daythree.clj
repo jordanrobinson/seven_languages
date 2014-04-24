@@ -6,7 +6,8 @@
 
 (defn credit-account
   [account amount]
-  (dosync (alter account + amount))
+    (dosync
+      (alter (get accounts account) + amount))
   )
 
 (defn debit-account
