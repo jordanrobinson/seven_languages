@@ -6,14 +6,19 @@
 
 (defn credit-account
   [account amount]
-    (dosync
-      (alter (get accounts account) + amount))
+  (dosync
+    (alter accounts
+      #(assoc %1 account (+ (get %1 account) amount))
+      )
+    )
   )
 
 (defn debit-account
   [account amount]
   (dosync
-    (alter (get accounts account) - amount)
+    (alter accounts
+      #(assoc %1 account (- (get %1 account) amount))
+      )
     )
   )
 
@@ -34,6 +39,5 @@
   (debit-account 0 40)
   (println accounts)
   )
-
 
 ;exercise two - the sleeping barber problem
